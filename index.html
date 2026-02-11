@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adidas Campaign Master Plan 2026</title>
+    <!-- Fonts: Oswald (Headlines), Inter (UI/Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* --- BRAND CORE --- */
+        :root {
+            --adi-black: #000000;
+            --adi-white: #FFFFFF;
+            --adi-gray-light: #eceff1;
+            --adi-gray-dark: #363738;
+            --accent-cyan: #00f0ff; /* Tech/Innovation */
+            --accent-purple: #8A2BE2; /* Women's Day */
+            --accent-blue: #0051BA; /* Barcelona/Father's Day */
+            --accent-red: #e32b2b; /* Valentine/Sale */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            color: var(--adi-black);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 40px 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- SLIDE STRUCTURE --- */
+        .slide {
+            width: 1280px;
+            height: 720px;
+            background: var(--adi-white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, .brand-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--adi-gray-dark);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* --- HEADER --- */
+        .adi-header {
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            background: var(--adi-white);
+            border-bottom: 1px solid #eee;
+            z-index: 100;
+        }
+
+        .logo-mark {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            transform: skew(-10deg);
+        }
+
+        .header-meta {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 1px solid var(--adi-black);
+            padding: 6px 12px;
+        }
+
+        /* --- TIMELINE COMPONENTS --- */
+        .timeline-container {
+            display: flex;
+            padding: 40px 50px;
+            gap: 20px;
+            height: 100%;
+            overflow-x: auto;
+            align-items: flex-start;
+            background: #fcfcfc;
+        }
+
+        .timeline-card {
+            min-width: 280px;
+            width: 280px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--adi-black);
+        }
+
+        .card-image {
+            height: 160px;
+            width: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.1);
+            transition: filter 0.3s;
+        }
+
+        .timeline-card:hover .card-image {
+            filter: grayscale(0%) contrast(1);
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .date-badge {
+            background: var(--adi-black);
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 8px;
+            align-self: flex-start;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .campaign-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .copy-block {
+            background: #f5f5f5;
+            padding: 15px;
+            font-size: 13px;
+            font-style: italic;
+            color: #444;
+            border-left: 3px solid var(--adi-black);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .channel-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #888;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: auto;
+        }
+
+        /* --- HERO SLIDE --- */
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            height: 100%;
+        }
+        .hero-content {
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--adi-black);
+            color: white;
+        }
+        .hero-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        /* --- UTILS --- */
+        .text-purple { color: var(--accent-purple); }
+        .border-purple { border-left-color: var(--accent-purple); }
+        .text-red { color: var(--accent-red); }
+        .border-red { border-left-color: var(--accent-red); }
+        .text-blue { color: var(--accent-blue); }
+        .border-blue { border-left-color: var(--accent-blue); }
+
+    </style>
+</head>
+<body>
+
+    <!-- SLIDE 1: PORTADA TÁCTICA -->
+    <div class="slide">
+        <div class="adi-header">
+            <div class="logo-mark">///</div>
+            <div class="header-meta">Q1 2026 ROADMAP</div>
+        </div>
+        <div class="hero-layout">
+            <div class="hero-content">
+                <span class="section-title" style="color: var(--accent-cyan);">SOCIAL MEDIA PLAN</span>
+                <h1 style="font-size: 72px; margin-bottom: 30px;">CAMPAIGN<br>CALENDAR</h1>
+                <p style="font-size: 18px; color: #ccc; margin-bottom: 40px; line-height: 1.5;">
+                    Ejecución táctica para Febrero y Marzo 2026. <br>
+                    Foco: Engagement emocional, Champions League, San Valentín y Temporada de Maratones.
+                </p>
+            </div>
+            <img class="hero-img" src="https://indiehoy.com/wp-content/uploads/2026/02/bad-bunny-adidas-.jpg" alt="Adidas Lifestyle">
+        </div>
+    </div>
+
+    <!-- SLIDE 2: FEBRERO CALENDAR -->
+    <div class="slide">
+        <div class="adi-header">
+            <div class="logo-mark">///</div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <span class="section-title" style="margin:0;">FEBRERO 2026</span>
+                <div class="header-meta">STATUS: APPROVED</div>
+            </div>
+        </div>
+       
+        <div style="padding: 20px 50px 0 50px;">
+            <h2 style="font-size: 42px;">FEBRUARY ACTIVATIONS</h2>
+            <p>Foco: Champions League, San Valentín & Motivation.</p>
+        </div>
+
+        <div class="timeline-container">
+           
+            <!-- Card 1: Feb 1 -->
+            <div class="timeline-card">
+                <img class="card-image" src="https://cdn.runrepeat.com/storage/gallery/buying_guide_primary/166/best-adidas-hiking-shoes-20200027-main.jpg" alt="Running Shoes">
+                <div class="card-body">
+                    <div class="date-badge">1 FEB | DOMINGO</div>
+                    <div class="campaign-title">MONTHLY KICKOFF</div>
+                    <div class="copy-block">
+                        "Nuevo mes, mismas metas. 👟 ¿Cuántos km caen hoy domingo? Cuéntanos tu ruta abajo. 👇 #AdidasRunning"
+                    </div>
+                    <div class="channel-tag"><i class="fa-brands fa-instagram"></i> FEED & STORIES</div>
+                </div>
+            </div>
+
+            <!-- Card 2: Valentine -->
+            <div class="timeline-card">
+                <img class="card-image" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1287&auto=format&fit=crop" alt="Couple Gym">
+                <div class="card-body">
+                    <div class="date-badge" style="background: var(--accent-red);">12-14 FEB | VALENTINE</div>
+                    <div class="campaign-title text-red">COUPLE GOALS</div>
+                    <div class="copy-block border-red">
+                        "El match perfecto no exis... 😍 Zapatillas + Calcetines a juego. <br><br>
+                        Regalos que dicen 'te quiero' (y 'vamos a entrenar juntos'). 💘"
+                    </div>
+                    <div class="channel-tag"><i class="fa-solid fa-envelope"></i> EMAIL + CAROUSEL</div>
+                </div>
+            </div>
+
+            <!-- Card 3: Valentine Day -->
+            <div class="timeline-card">
+                <img class="card-image" src="https://s.yimg.com/ny/api/res/1.2/v_pSZ5EKGk.rd.bQsGX.ew--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTYwMDtjZj13ZWJw/https://media.zenfs.com/en/airfrov_825/1afb7fc0123411b859db35d4c034f176" alt="Teamwork">
+                <div class="card-body">
+                    <div class="date-badge" style="background: var(--accent-red);">14 FEB | DÍA V</div>
+                    <div class="campaign-title text-red">TEAM SPORT</div>
+                    <div class="copy-block border-red">
+                        "SAN VALENTÍN ❤️ El amor es un deporte de equipo. ¡Feliz día! Menciona a tu gym partner."
+                    </div>
+                    <div class="channel-tag"><i class="fa-brands fa-twitter"></i> TWITTER / X</div>
+                </div>
+            </div>
+
+            <!-- Card 4: Champions League -->
+            <div class="timeline-card">
+                <img class="card-image" src="https://editorial.uefa.com/resources/028a-1a2990520e16-753763ab6ffb-1000/ucl_ball.jpeg" alt="Football Stadium">
+                <div class="card-body">
+                    <div class="date-badge">17 FEB | UCL RETURN</div>
+                    <div class="campaign-title">THE CHAMPIONS</div>
+                    <div class="copy-block">
+                        "Vuelve la magia europea. ⚽✨ ¿Estáis listos para las noches de Champions? #UCL"
+                    </div>
+                    <div class="channel-tag"><i class="fa-brands fa-tiktok"></i> TIKTOK + REELS</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SLIDE 3: MARZO CALENDAR -->
+    <div class="slide">
+        <div class="adi-header">
+            <div class="logo-mark">///</div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <span class="section-title" style="margin:0;">MARZO 2026</span>
+                <div class="header-meta">STATUS: PLANNING</div>
+            </div>
+        </div>
+
+        <div style="padding: 20px 50px 0 50px;">
+            <h2 style="font-size: 42px;">MARCH ACTIVATIONS</h2>
+            <p>Foco: Women's Day, Barcelona Marathon & Father's Day.</p>
+        </div>
+
+        <div class="timeline-container">
+
+            <!-- Card 1: 8M Women -->
+            <div class="timeline-card">
+                <img class="card-image" src="https://s3.eu-west-2.amazonaws.com/img.creativepool.com/files/candidate/portfolio/full/1803785.png" alt="Woman Runner">
+                <div class="card-body">
+                    <div class="date-badge" style="background: var(--accent-purple);">8 MAR | WOMEN'S DAY</div>
+                    <div class="campaign-title text-purple">IMPOSSIBLE IS NOTHING</div>
+                    <div class="copy-block border-purple">
+                        "DÍA DE LA MUJER. No es imposible si nosotras lo hacemos. Va por todas las que abrieron camino. 💜🏃‍♀️"
+                    </div>
+                    <div class="channel-tag"><i class="fa-brands fa-instagram"></i> HERO VIDEO</div>
+                </div>
+            </div>
+
+            <!-- Card 2: BCN Marathon Prep -->
+            <div class="timeline-card">
+                <img class="card-image" src="https://img.mailinblue.com/3828913/images/content_library/original/646e401744d50d5c27748f61.jpg" alt="Flatlay Gear">
+                <div class="card-body">
+                    <div class="date-badge" style="background: var(--accent-blue);">10-15 MAR | BCN MARATHON</div>
+                    <div class="campaign-title text-blue">BARCELONA 42K</div>
+                    <div class="copy-block border-blue">
+                        "¿Maratón de Barcelona a la vista? 🌊 Queda poco. Checklist de material."
+                        <hr style="margin: 5px 0; border: 0; border-top: 1px dashed #ccc;">
+                        "¡Vamos Barcelona! 🟦🟥 Hoy las calles son vuestras. ¡Ánimo runners!"
+                    </div>
+                    <div class="channel-tag"><i class="fa-solid fa-location-dot"></i> LOCAL + STORIES</div>
+                </div>
+            </div>
+
+            <!-- Card 3: Father's Day -->
+            <div class="timeline-card">
+                <img class="card-image" src="https://cdn.prod.website-files.com/657eccfbaeba36ef69962c26/657eccfbaeba36ef69962d1a_adidas-damian13.webp" alt="Dad and Son shoes">
+                <div class="card-body">
+                    <div class="date-badge" style="background: var(--accent-blue);">19 MAR | DÍA DEL PADRE</div>
+                    <div class="campaign-title text-blue">GRACIAS PAPÁ</div>
+                    <div class="copy-block border-blue">
+                        "DÍA DEL PADRE. Gracias por atarnos los cordones hasta que aprendimos a volar. Feliz día, papá. 💙"
+                    </div>
+                    <div class="channel-tag"><i class="fa-brands fa-facebook"></i> FACEBOOK + IG</div>
+                </div>
+            </div>
+
+            <!-- Card 4: Spring -->
+            <div class="timeline-card">
+                <img class="card-image" src="https://www.outsideonline.com/wp-content/uploads/2023/11/befunky_2023-10-2_13-18-21.jpg" alt="Spring Vibes">
+                <div class="card-body">
+                    <div class="date-badge" style="background: green;">20 MAR | SPRING</div>
+                    <div class="campaign-title" style="color:green;">HELLO SPRING</div>
+                    <div class="copy-block" style="border-left-color: green;">
+                        "¡Hola Primavera! 🌻 Cambio de armario en 3, 2, 1... #AdidasOriginals"
+                    </div>
+                    <div class="channel-tag"><i class="fa-solid fa-shop"></i> APP PUSH</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+
