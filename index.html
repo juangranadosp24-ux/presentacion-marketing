@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adidas Campaign Master Plan 2026</title>
-    <!-- Fonts: Oswald (Headlines), Inter (UI/Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
@@ -32,20 +31,23 @@
             flex-direction: column;
             align-items: center;
             gap: 40px;
-            padding: 40px 0;
+            padding: 40px 20px; /* Padding lateral añadido para móviles */
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- SLIDE STRUCTURE --- */
+        /* --- SLIDE STRUCTURE (MODIFICADO PARA RESPONSIVE) --- */
         .slide {
-            width: 1280px;
-            height: 720px;
+            width: 100%;           /* Ocupa el ancho disponible */
+            max-width: 1280px;     /* Pero no te pases de 1280px */
+            min-height: 720px;     /* Altura mínima, pero puede crecer */
+            height: auto;          /* Altura flexible */
             background: var(--adi-white);
             position: relative;
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0,0,0,0.15);
             display: flex;
             flex-direction: column;
+            border-radius: 8px;    /* Suavizado de bordes */
         }
 
         /* --- TYPOGRAPHY --- */
@@ -74,7 +76,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 50px;
+            padding: 0 30px; /* Reducido un poco el padding */
             background: var(--adi-white);
             border-bottom: 1px solid #eee;
             z-index: 100;
@@ -101,9 +103,19 @@
             padding: 40px 50px;
             gap: 20px;
             height: 100%;
-            overflow-x: auto;
-            align-items: flex-start;
+            overflow-x: auto; /* Permite scroll lateral suave en móvil */
+            align-items: stretch; /* Estira las tarjetas para que tengan la misma altura */
             background: #fcfcfc;
+            padding-bottom: 40px;
+        }
+
+        /* Personalizar la barra de scroll */
+        .timeline-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .timeline-container::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
         }
 
         .timeline-card {
@@ -185,7 +197,8 @@
         .hero-layout {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
-            height: 100%;
+            height: 100%; /* Ocupa el alto disponible */
+            min-height: 650px; /* Altura mínima para que no se aplaste */
         }
         .hero-content {
             padding: 80px 60px;
@@ -210,11 +223,38 @@
         .text-blue { color: var(--accent-blue); }
         .border-blue { border-left-color: var(--accent-blue); }
 
+        /* --- MOBILE RESPONSIVE MEDIA QUERY (¡NUEVO!) --- */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px; /* Menos padding en los bordes del móvil */
+            }
+            .slide {
+                height: auto; /* Altura libre en móvil */
+                min-height: auto;
+            }
+            .hero-layout {
+                grid-template-columns: 1fr; /* Una sola columna */
+                grid-template-rows: auto 300px; /* Texto automático, imagen 300px */
+            }
+            .hero-content {
+                padding: 40px 20px; /* Menos padding interno */
+            }
+            /* Sobrescribir el tamaño gigante del título H1 en móvil */
+            .hero-content h1 {
+                font-size: 48px !important; 
+            }
+            .adi-header {
+                padding: 0 15px;
+            }
+            .timeline-container {
+                padding: 20px; /* Menos espacio alrededor de las tarjetas */
+            }
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- SLIDE 1: PORTADA TÁCTICA -->
     <div class="slide">
         <div class="adi-header">
             <div class="logo-mark">///</div>
@@ -229,11 +269,10 @@
                     Foco: Engagement emocional, Champions League, San Valentín y Temporada de Maratones.
                 </p>
             </div>
-            <img class="hero-img" src="https://indiehoy.com/wp-content/uploads/2026/02/bad-bunny-adidas-.jpg" alt="Adidas Lifestyle">
+            <img class="hero-img" src="https://indiehoy.com/wp-content/uploads/2026/02/bad-bunny-adidas-.jpg" alt="Adidas Lifestyle" onerror="this.src='https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=2070&auto=format&fit=crop'">
         </div>
     </div>
 
-    <!-- SLIDE 2: FEBRERO CALENDAR -->
     <div class="slide">
         <div class="adi-header">
             <div class="logo-mark">///</div>
@@ -250,7 +289,6 @@
 
         <div class="timeline-container">
             
-            <!-- Card 1: Feb 1 -->
             <div class="timeline-card">
                 <img class="card-image" src="https://cdn.runrepeat.com/storage/gallery/buying_guide_primary/166/best-adidas-hiking-shoes-20200027-main.jpg" alt="Running Shoes">
                 <div class="card-body">
@@ -263,7 +301,6 @@
                 </div>
             </div>
 
-            <!-- Card 2: Valentine -->
             <div class="timeline-card">
                 <img class="card-image" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1287&auto=format&fit=crop" alt="Couple Gym">
                 <div class="card-body">
@@ -277,7 +314,6 @@
                 </div>
             </div>
 
-            <!-- Card 3: Valentine Day -->
             <div class="timeline-card">
                 <img class="card-image" src="https://s.yimg.com/ny/api/res/1.2/v_pSZ5EKGk.rd.bQsGX.ew--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTYwMDtjZj13ZWJw/https://media.zenfs.com/en/airfrov_825/1afb7fc0123411b859db35d4c034f176" alt="Teamwork">
                 <div class="card-body">
@@ -290,7 +326,6 @@
                 </div>
             </div>
 
-            <!-- Card 4: Champions League -->
             <div class="timeline-card">
                 <img class="card-image" src="https://editorial.uefa.com/resources/028a-1a2990520e16-753763ab6ffb-1000/ucl_ball.jpeg" alt="Football Stadium">
                 <div class="card-body">
@@ -306,7 +341,6 @@
         </div>
     </div>
 
-    <!-- SLIDE 3: MARZO CALENDAR -->
     <div class="slide">
         <div class="adi-header">
             <div class="logo-mark">///</div>
@@ -323,7 +357,6 @@
 
         <div class="timeline-container">
 
-            <!-- Card 1: 8M Women -->
             <div class="timeline-card">
                 <img class="card-image" src="https://s3.eu-west-2.amazonaws.com/img.creativepool.com/files/candidate/portfolio/full/1803785.png" alt="Woman Runner">
                 <div class="card-body">
@@ -336,7 +369,6 @@
                 </div>
             </div>
 
-            <!-- Card 2: BCN Marathon Prep -->
             <div class="timeline-card">
                 <img class="card-image" src="https://img.mailinblue.com/3828913/images/content_library/original/646e401744d50d5c27748f61.jpg" alt="Flatlay Gear">
                 <div class="card-body">
@@ -351,7 +383,6 @@
                 </div>
             </div>
 
-            <!-- Card 3: Father's Day -->
             <div class="timeline-card">
                 <img class="card-image" src="https://cdn.prod.website-files.com/657eccfbaeba36ef69962c26/657eccfbaeba36ef69962d1a_adidas-damian13.webp" alt="Dad and Son shoes">
                 <div class="card-body">
@@ -364,7 +395,6 @@
                 </div>
             </div>
 
-            <!-- Card 4: Spring -->
             <div class="timeline-card">
                 <img class="card-image" src="https://www.outsideonline.com/wp-content/uploads/2023/11/befunky_2023-10-2_13-18-21.jpg" alt="Spring Vibes">
                 <div class="card-body">
@@ -382,4 +412,3 @@
 
 </body>
 </html>
-
