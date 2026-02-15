@@ -35,19 +35,19 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- SLIDE STRUCTURE (MODIFICADO PARA RESPONSIVE) --- */
+        /* --- SLIDE STRUCTURE --- */
         .slide {
-            width: 100%;           /* Ocupa el ancho disponible */
-            max-width: 1280px;     /* Pero no te pases de 1280px */
-            min-height: 720px;     /* Altura mínima, pero puede crecer */
-            height: auto;          /* Altura flexible */
+            width: 100%;           
+            max-width: 1280px;     
+            min-height: 720px;     
+            height: auto;          
             background: var(--adi-white);
             position: relative;
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0,0,0,0.15);
             display: flex;
             flex-direction: column;
-            border-radius: 8px;    /* Suavizado de bordes */
+            border-radius: 8px;    
         }
 
         /* --- TYPOGRAPHY --- */
@@ -76,7 +76,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 30px; /* Reducido un poco el padding */
+            padding: 0 30px; 
             background: var(--adi-white);
             border-bottom: 1px solid #eee;
             z-index: 100;
@@ -103,13 +103,12 @@
             padding: 40px 50px;
             gap: 20px;
             height: 100%;
-            overflow-x: auto; /* Permite scroll lateral suave en móvil */
-            align-items: stretch; /* Estira las tarjetas para que tengan la misma altura */
+            overflow-x: auto; 
+            align-items: stretch; 
             background: #fcfcfc;
             padding-bottom: 40px;
         }
 
-        /* Personalizar la barra de scroll */
         .timeline-container::-webkit-scrollbar {
             height: 8px;
         }
@@ -197,8 +196,8 @@
         .hero-layout {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
-            height: 100%; /* Ocupa el alto disponible */
-            min-height: 650px; /* Altura mínima para que no se aplaste */
+            height: 100%; 
+            min-height: 650px; 
         }
         .hero-content {
             padding: 80px 60px;
@@ -215,6 +214,50 @@
             filter: grayscale(100%);
         }
 
+        /* --- CTA BUTTON STYLE (NUEVO) --- */
+        .cta-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #f9f9f9 0%, #ffffff 70%);
+            padding: 20px;
+        }
+
+        .sheet-icon {
+            font-size: 80px;
+            color: #0f9d58; /* Color verde Google Sheets */
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .btn-adi {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--adi-black);
+            color: var(--adi-white);
+            padding: 18px 45px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--adi-black);
+            margin-top: 30px;
+            cursor: pointer;
+        }
+
+        .btn-adi:hover {
+            background: transparent;
+            color: var(--adi-black);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
         /* --- UTILS --- */
         .text-purple { color: var(--accent-purple); }
         .border-purple { border-left-color: var(--accent-purple); }
@@ -223,32 +266,23 @@
         .text-blue { color: var(--accent-blue); }
         .border-blue { border-left-color: var(--accent-blue); }
 
-        /* --- MOBILE RESPONSIVE MEDIA QUERY (¡NUEVO!) --- */
+        /* --- MOBILE RESPONSIVE MEDIA QUERY --- */
         @media (max-width: 768px) {
-            body {
-                padding: 20px 10px; /* Menos padding en los bordes del móvil */
-            }
-            .slide {
-                height: auto; /* Altura libre en móvil */
-                min-height: auto;
-            }
+            body { padding: 20px 10px; }
+            .slide { height: auto; min-height: auto; }
             .hero-layout {
-                grid-template-columns: 1fr; /* Una sola columna */
-                grid-template-rows: auto 300px; /* Texto automático, imagen 300px */
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 300px;
             }
-            .hero-content {
-                padding: 40px 20px; /* Menos padding interno */
-            }
-            /* Sobrescribir el tamaño gigante del título H1 en móvil */
-            .hero-content h1 {
-                font-size: 48px !important; 
-            }
-            .adi-header {
-                padding: 0 15px;
-            }
-            .timeline-container {
-                padding: 20px; /* Menos espacio alrededor de las tarjetas */
-            }
+            .hero-content { padding: 40px 20px; }
+            .hero-content h1 { font-size: 48px !important; }
+            .adi-header { padding: 0 15px; }
+            .timeline-container { padding: 20px; }
+            
+            /* Ajuste móvil nueva slide */
+            .sheet-icon { font-size: 60px; }
+            .cta-container h2 { font-size: 36px !important; }
+            .btn-adi { width: 100%; justify-content: center; }
         }
 
     </style>
@@ -267,6 +301,11 @@
                 <p style="font-size: 18px; color: #ccc; margin-bottom: 40px; line-height: 1.5;">
                     Ejecución táctica para febrero y marzo 2026. <br>
                     Foco: Engagement emocional, Champions League, San Valentín y Temporada de maratones.
+                <div style="font-size: 16px; color: #e0e0e0; line-height: 1.8; border-left: 2px solid var(--accent-cyan); padding-left: 15px;">
+                    <div><strong>Juan Camilo Granados Palomino</strong> - NIU 1778394</div>
+                    <div><strong>Alan Leonardo Sandoval Terrazas</strong> - NIU 1775566</div>
+                    <div><strong>Chengcheng Li</strong> - NIU 1468502</div>
+                </div>
                 </p>
             </div>
             <img class="hero-img" src="https://indiehoy.com/wp-content/uploads/2026/02/bad-bunny-adidas-.jpg" alt="Adidas Lifestyle" onerror="this.src='https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=2070&auto=format&fit=crop'">
@@ -284,7 +323,7 @@
         
         <div style="padding: 20px 50px 0 50px;">
             <h2 style="font-size: 42px;">ACTIVACIONES DE FEBRERO</h2>
-            <p>Foco: Champions League, San Valentín & Motivación.</p>
+            <p>Foco: Champions league, San Valentín y motivación.</p>
         </div>
 
         <div class="timeline-container">
@@ -352,7 +391,7 @@
 
         <div style="padding: 20px 50px 0 50px;">
             <h2 style="font-size: 42px;">Activaciones de Marzo</h2>
-            <p>Foco: día de la mujer, maratón de Barcelona & día del padre.</p>
+            <p>Foco: día de la mujer, maratón de Barcelona, día del padre y primavera</p>
         </div>
 
         <div class="timeline-container">
@@ -372,7 +411,7 @@
             <div class="timeline-card">
                 <img class="card-image" src="https://img.mailinblue.com/3828913/images/content_library/original/646e401744d50d5c27748f61.jpg" alt="Flatlay Gear">
                 <div class="card-body">
-                    <div class="date-badge" style="background: var(--accent-blue);">10-15 MAR | BCN MARATHON</div>
+                    <div class="date-badge" style="background: var(--accent-blue);">10-15 MAR | MARATÓN DE BARCELONA</div>
                     <div class="campaign-title text-blue">BARCELONA 42K</div>
                     <div class="copy-block border-blue">
                         "¿Maratón de Barcelona a la vista? 🌊 Queda poco. Checklist de material."
@@ -398,7 +437,7 @@
             <div class="timeline-card">
                 <img class="card-image" src="https://www.outsideonline.com/wp-content/uploads/2023/11/befunky_2023-10-2_13-18-21.jpg" alt="Spring Vibes">
                 <div class="card-body">
-                    <div class="date-badge" style="background: green;">20 MAR | SPRING</div>
+                    <div class="date-badge" style="background: green;">20 MAR | PRIMAVERA</div>
                     <div class="campaign-title" style="color:green;">HELLO SPRING</div>
                     <div class="copy-block" style="border-left-color: green;">
                         "¡Hola Primavera! 🌻 Cambio de armario en 3, 2, 1... #AdidasOriginals"
@@ -407,6 +446,28 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="adi-header">
+            <div class="logo-mark">///</div>
+            <div class="header-meta">RECURSOS & ANEXOS</div>
+        </div>
+
+        <div class="cta-container">
+            <i class="fa-solid fa-file-csv sheet-icon"></i>
+            
+            <span class="section-title" style="color: var(--adi-gray-dark);">Documentación Técnica</span>
+            <h2 style="font-size: 56px; margin-bottom: 15px;">PARRILLA DE CONTENIDOS</h2>
+            
+            <p style="font-size: 18px; color: #666; max-width: 600px; line-height: 1.6;">
+                Acceso directo al calendario detallado, incluyendo copiesn, gestión de assets y horarios de publicación específicos.
+            </p>
+
+            <a href="https://docs.google.com/spreadsheets/d/1ZvgW8AusazJLQtcs6eEwSB9ZYyLFt2myu24tmCTwAoc/edit?gid=1809022561#gid=1809022561" target="_blank" class="btn-adi">
+                Ver Google Sheet <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
         </div>
     </div>
 
